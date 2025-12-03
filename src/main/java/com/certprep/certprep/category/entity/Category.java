@@ -36,5 +36,5 @@ public class Category {
     public void setStatus(Byte status) {
         this.status = status;
     }
-    
+
 }
