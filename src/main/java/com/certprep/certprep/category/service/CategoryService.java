@@ -14,6 +14,11 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
+
+    public Category saveCategory(Category category) {
+        return categoryRepository.save(category);
+    }
+
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();   // ← instance call, not static
     }
