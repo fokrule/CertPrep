@@ -11,20 +11,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/catagory")
+@RequestMapping("/api/category")
 public class CategoryController {
     // Inject Service
-    // private final Service service;
-    private final CategoryService categoryServcie;
+    private final CategoryService categoryService;
 
-    public CategoryController(CategoryService categoryServcie) {
-        this.categoryServcie = categoryServcie;
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
     }
 
-    // get catagory by status
+
     @GetMapping
-    public ResponseEntity<List <Category>> allCategories(){
-        return new ResponseEntity<>(CategoryService.getAllCategories(), HttpStatus.OK);
+    public ResponseEntity<List<Category>> allCategories() {
+        return new ResponseEntity<>(
+                categoryService.getAllCategories(),   // ← call via instance, NOT static
+                HttpStatus.OK
+        );
     }
 
 }
