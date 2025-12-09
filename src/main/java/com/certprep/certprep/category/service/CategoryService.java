@@ -15,6 +15,14 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
+    public Category updateCategory(long id, Category categoryDetails) {
+        Category categoryToUpdate = categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(("Category Could not found with id" + id)));
+        categoryToUpdate.setName(categoryDetails.getName());
+        categoryToUpdate.setStatus(categoryDetails.getStatus());
+        return categoryRepository.save(categoryToUpdate);
+    }
+
     public Category saveCategory(Category category) {
         return categoryRepository.save(category);
     }
