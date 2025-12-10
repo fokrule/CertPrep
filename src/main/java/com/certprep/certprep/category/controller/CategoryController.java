@@ -39,4 +39,13 @@ public class CategoryController {
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Category> getCategory(@PathVariable long id){
+        return new ResponseEntity<>(categoryService.getCategoryById(id), HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Category> deleteCategory(@PathVariable long id){
+        return new ResponseEntity<>(categoryService.deleteCategory(id), HttpStatus.DELETED);
+    }
 }

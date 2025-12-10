@@ -2,6 +2,7 @@ package com.certprep.certprep.category.service;
 
 import com.certprep.certprep.category.entity.Category;
 import com.certprep.certprep.category.repository.CategoryRepository;
+import com.certprep.certprep.common.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class CategoryService {
 
     public Category updateCategory(long id, Category categoryDetails) {
         Category categoryToUpdate = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(("Category Could not found with id" + id)));
+                .orElseThrow(() -> new ResourceNotFoundException(("Category Could not found with id" + id)));
         categoryToUpdate.setName(categoryDetails.getName());
         categoryToUpdate.setStatus(categoryDetails.getStatus());
         return categoryRepository.save(categoryToUpdate);
@@ -29,5 +30,11 @@ public class CategoryService {
 
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();   // ← instance call, not static
+    }
+
+    public Category getCategoryById(long id) {
+        Category singleCategory = categoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(("Category Could not found with id" + id)));
+        return singleCategory;
     }
 }
