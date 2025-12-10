@@ -37,4 +37,10 @@ public class CategoryService {
                 .orElseThrow(() -> new ResourceNotFoundException(("Category Could not found with id" + id)));
         return singleCategory;
     }
+
+    public void deleteCategory(long id) {
+        categoryRepository.deleteById(id).orElseThow(
+                () -> new ResourceNotFoundException(("Category Could not found with id " + id))
+        );
+    }
 }
