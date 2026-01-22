@@ -53,5 +53,6 @@ public class QuestionController {
     @GetMapping("/{id}")
     public ResponseEntity<QuestionDto> getQuestionById(@PathVariable long id){
         QuestionDto singleQuestion = questionService.getQuestionById(id);
+        return new ResponseEntity<>(singleQuestion, HttpStatus.OK);
     }
 }

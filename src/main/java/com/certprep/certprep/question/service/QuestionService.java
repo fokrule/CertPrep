@@ -25,8 +25,15 @@ public class QuestionService {
     }
 
     public QuestionDto getQuestionById(long id) {
-        QuestionDto singleQuestion =  questionRepository.findById(id)
+
+        Question singleQuestion = questionRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Question Could not found with id" + id));
-        return singleQuestion;
+
+        QuestionDto questionDto = new QuestionDto();
+        questionDto.setId(singleQuestion.getId());
+        questionDto.setQuestion(singleQuestion.getQuestion());
+        questionDto.setExplanation(singleQuestion.getExplanation());
+
+        return questionDto;
     }
 }
