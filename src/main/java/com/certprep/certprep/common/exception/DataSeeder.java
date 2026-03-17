@@ -22,9 +22,9 @@ public class DataSeeder {
 
                 // save question
                 Question question = new Question();
-                question.setCategory(java);
-                question.setQuestion("This is a question");
-                question.setExplanation("This is a explanation");
+//                question.setCategory(java);
+//                question.setQuestion("This is a question");
+//                question.setExplanation("This is a explanation");
                 questionRepository.save(question);
             }
         };

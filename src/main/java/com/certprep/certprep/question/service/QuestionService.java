@@ -31,8 +31,8 @@ public class QuestionService {
 
         QuestionDto questionDto = new QuestionDto();
         questionDto.setId(singleQuestion.getId());
-        questionDto.setQuestion(singleQuestion.getQuestion());
-        questionDto.setExplanation(singleQuestion.getExplanation());
+//        questionDto.setQuestion(singleQuestion.getQuestion());
+//        questionDto.setExplanation(singleQuestion.getExplanation());
 
         return questionDto;
     }

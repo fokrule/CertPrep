@@ -1,24 +1,23 @@
-package com.certprep.certprep.question.entity;
-
+package com.certprep.certprep.exam.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="questions")
+@Table(name="exams")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Question {
+public class Exam {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long examId;
+    private String title;
 
-    private String questionText;
+    private String description;
 
 }

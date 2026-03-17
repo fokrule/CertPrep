@@ -1,24 +1,25 @@
-package com.certprep.certprep.question.entity;
-
+package com.certprep.certprep.submission.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="questions")
+@Table(name="submissions")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Question {
+public class Submission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long userId;
+
     private Long examId;
 
-    private String questionText;
+    private Integer score;
 
 }

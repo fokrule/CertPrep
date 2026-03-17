@@ -1,24 +1,25 @@
-package com.certprep.certprep.question.entity;
-
+package com.certprep.certprep.user.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="questions")
+@Table(name="users")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Question {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long examId;
+    private String name;
+    private String email;
 
-    private String questionText;
+    private String password;
 
+    private String role;
 }
