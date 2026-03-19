@@ -1,5 +1,7 @@
 package com.certprep.certprep.user.service;
 
+import com.certprep.certprep.user.dto.UserRequest;
+import com.certprep.certprep.user.dto.UserResponse;
 import com.certprep.certprep.user.entity.User;
 import com.certprep.certprep.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +15,20 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User register(User user){
-        return userRepository.save(user);
+    public UserResponse register(UserRequest request) {
+
+        User user = new User();
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+
+        User saved = userRepository.save(user);
+
+        UserResponse response = new UserResponse();
+        response.setId(saved.getId());
+        response.setName(saved.getName());
+        response.setEmail(saved.getEmail());
+
+        return response;
     }
 
     public User getUser(Long id){

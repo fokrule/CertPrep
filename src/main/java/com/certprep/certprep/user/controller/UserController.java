@@ -1,5 +1,7 @@
 package com.certprep.certprep.user.controller;
 
+import com.certprep.certprep.user.dto.UserRequest;
+import com.certprep.certprep.user.dto.UserResponse;
 import com.certprep.certprep.user.entity.User;
 import com.certprep.certprep.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +19,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User user){
-        return ResponseEntity.ok(userService.register(user));
+    public ResponseEntity<UserResponse> register(@RequestBody UserRequest request){
+        return ResponseEntity.ok(userService.register(request));
     }
 
     @GetMapping("/{id}")
