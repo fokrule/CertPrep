@@ -2,7 +2,7 @@ package com.certprep.certprep.category.service;
 
 import com.certprep.certprep.category.entity.Category;
 import com.certprep.certprep.category.repository.CategoryRepository;
-import com.certprep.certprep.common.exception.ResourceNotFoundException;
+import com.certprep.certprep.submission.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

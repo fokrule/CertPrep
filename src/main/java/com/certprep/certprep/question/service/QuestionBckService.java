@@ -1,32 +1,31 @@
 package com.certprep.certprep.question.service;
 
-import com.certprep.certprep.category.entity.Category;
-import com.certprep.certprep.common.exception.ResourceNotFoundException;
+import com.certprep.certprep.submission.exception.ResourceNotFoundException;
 import com.certprep.certprep.question.dto.QuestionDto;
-import com.certprep.certprep.question.entity.Question;
-import com.certprep.certprep.question.repository.QuestionRepository;
+import com.certprep.certprep.question.entity.QuestionBK;
+import com.certprep.certprep.question.repository.QuestionBckRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class QuestionService {
-    private final QuestionRepository questionRepository;
-    public QuestionService(QuestionRepository questionRepository){
+public class QuestionBckService {
+    private final QuestionBckRepository questionRepository;
+    public QuestionBckService(QuestionBckRepository questionRepository){
         this.questionRepository = questionRepository;
     }
-    public Question saveQuestion(Question question) {
+    public QuestionBK saveQuestion(QuestionBK question) {
         return questionRepository.save(question);
     }
 
-    public List<Question> getAllQuestions() {
+    public List<QuestionBK> getAllQuestions() {
         System.out.println("getAllQuestions");
         return questionRepository.findAll();
     }
 
     public QuestionDto getQuestionById(long id) {
 
-        Question singleQuestion = questionRepository.findById(id)
+        QuestionBK singleQuestion = questionRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Question Could not found with id" + id));
 
         QuestionDto questionDto = new QuestionDto();

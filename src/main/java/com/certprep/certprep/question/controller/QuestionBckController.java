@@ -1,20 +1,16 @@
 package com.certprep.certprep.question.controller;
 
-import com.certprep.certprep.category.dto.CategoryDto;
 import com.certprep.certprep.question.dto.QuestionDto;
-import com.certprep.certprep.question.entity.Question;
-import com.certprep.certprep.question.service.QuestionService;
+import com.certprep.certprep.question.service.QuestionBckService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/questions")
-public class QuestionController {
-    private final QuestionService questionService;
-    public QuestionController(QuestionService questionService){
+public class QuestionBckController {
+    private final QuestionBckService questionService;
+    public QuestionBckController(QuestionBckService questionService){
         this.questionService = questionService;
     }
 

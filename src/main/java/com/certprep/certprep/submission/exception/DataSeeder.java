@@ -1,9 +1,9 @@
-package com.certprep.certprep.common.exception;
+package com.certprep.certprep.submission.exception;
 
 import com.certprep.certprep.category.entity.Category;
 import com.certprep.certprep.category.repository.CategoryRepository;
-import com.certprep.certprep.question.entity.Question;
-import com.certprep.certprep.question.repository.QuestionRepository;
+import com.certprep.certprep.question.entity.QuestionBK;
+import com.certprep.certprep.question.repository.QuestionBckRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataSeeder {
     @Bean
-    CommandLineRunner seedData(CategoryRepository categoryRepository, QuestionRepository questionRepository) {
+    CommandLineRunner seedData(CategoryRepository categoryRepository, QuestionBckRepository questionRepository) {
         return args -> {
             if(categoryRepository.count() == 0) {
                 // seed category
@@ -21,7 +21,7 @@ public class DataSeeder {
                 categoryRepository.save(java);
 
                 // save question
-                Question question = new Question();
+                QuestionBK question = new QuestionBK();
 //                question.setCategory(java);
 //                question.setQuestion("This is a question");
 //                question.setExplanation("This is a explanation");
