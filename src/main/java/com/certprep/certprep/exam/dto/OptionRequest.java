@@ -21,7 +21,7 @@ public class OptionRequest {
         this.text = text;
     }
 
-    public void setCorrect(boolean correct) {
+    public void setIsCorrect(boolean correct) {
         isCorrect = correct;
     }
 }
